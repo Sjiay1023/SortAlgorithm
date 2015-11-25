@@ -51,3 +51,30 @@ void binary_insertion_sort(list *a)
 		a[j+1].key = temp;
 	}
 } 
+
+//希尔排序
+void shell_insertion_sort(list *a,int len_a)
+{
+	for(int i=len_a/2;i>0;i/=2)
+	{
+		shell_sort(a,i);
+	}
+} 
+//按照b大小对a进行划分后的普通直接插入排序
+void shell_sort(list *a,int b)
+{
+	int len=a[0].key;
+	for(int i=b+1;i<len;++i)
+	{
+		if(a[i].key<a[i-b].key)
+		{
+			int temp = a[i].key;
+			int j ;
+			for(j=i-b;(j>=1)&&(temp<a[j].key);j-=b)
+			{
+				a[j+b].key=a[j].key;
+			}
+			a[j+b].key=temp;
+		}
+	}
+} 
