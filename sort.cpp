@@ -78,3 +78,23 @@ void shell_sort(list *a,int b)
 		}
 	}
 } 
+
+//Ωªªª≈≈–Ú 
+//√∞≈›≈≈–Ú 
+void bubble_sort(list *a)
+{
+	int len = a[0].key;
+	for(int i=1;i<len;++i)
+	{
+		bool flag = true;
+		for(int j=1;j<len-i+1;++j)
+		{
+			if(a[j].key>a[j+1].key)
+			{
+				swap(a[j].key,a[j+1].key);
+				flag = false;
+			}
+		}
+		if(flag)break;
+	}
+} 
