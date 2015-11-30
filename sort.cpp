@@ -123,3 +123,24 @@ void quick_sort(list *a,int low,int high)
 		quick_sort(a,i+1,high);
 	}
 } 
+
+//—°‘Ò≈≈–Ú
+//ºÚµ•—°‘Ò≈≈–Ú 
+void select_sort(list *a)
+{
+	int len =a[0].key;
+	for(int i=1;i<len;++i)
+	{
+		int min_value=a[i].key;
+		int min_index=i;
+		for(int j=i+1;j<=len;++j)
+		{
+			if(a[j].key<min_value)
+			{
+				min_value=a[j].key;
+				min_index=j;
+			}
+		}
+		swap(a[i].key,a[min_index].key);
+	}
+}
