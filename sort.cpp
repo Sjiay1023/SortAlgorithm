@@ -98,3 +98,28 @@ void bubble_sort(list *a)
 		if(flag)break;
 	}
 } 
+//øÏÀŸ≈≈–Ú
+void quick_sort(list *a,int low,int high)
+{
+	if(low<high)
+	{
+		int axis = a[low].key;
+		int i=low,j = high;
+		while(i<j)
+		{
+			while(i<j&&a[j].key>=axis)
+			{
+				--j;
+				a[i].key=a[j].key;
+			}
+			while(i<j&&a[i].key>=axis)
+			{
+				++i;
+				a[j].key=a[i].key;
+			}
+		}
+		a[j].key =axis;
+			quick_sort(a,low,i-1);
+		quick_sort(a,i+1,high);
+	}
+} 
