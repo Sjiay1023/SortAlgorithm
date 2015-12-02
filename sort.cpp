@@ -103,8 +103,9 @@ void quick_sort(list *a,int low,int high)
 {
 	if(low<high)
 	{
-		int axis = a[low].key;
+		int axis = a[low].key;//字表的第一个记录作为枢轴记录 
 		int i=low,j = high;
+		//交替向中间扫描 
 		while(i<j)
 		{
 			while(i<j&&a[j].key>=axis)
@@ -149,7 +150,7 @@ void select_sort(list *a)
 void heap_sort(list *a)
 {
 	int len = a[0].key;
-	//建立一个堆得过程
+	//建立一个堆的过程
 	for(int i=len/2;i>0;--i)
 	{
 		heap_adjust(a,i,len);
